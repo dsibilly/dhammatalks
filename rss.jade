@@ -1,0 +1,36 @@
+//- rss.jade
+//- Rendering template for dhammatalks Evening Talks RSS feed
+//- Duane Sibilly <duane@sibilly.com>
+doctype xml
+rss(version='2.0', xmlns:atom='http://www.w3.org/2005/Atom', xmlns:itunes='http://www.itunes.com/dtds/podcast-1.0.dtd')
+	channel
+		atom:link(href='#{rssURL}', rel='self', type='application/rss+xml')
+		title Dhammatalks.org Evening Talks
+		link http://dhammatalks.org
+		description These were given by Thanissaro Bhikkhu during the evening meditation sessions at Metta Forest Monastery, Valley Center CA
+		language en-US
+		//- Grab the most recent talk and use its pubDate as the last build date
+		if talks.length
+			lastBuildDate= talks[0].pubDate
+		itunes:author Thanissaro Bhikkhu
+		itunes:owner
+			itunes:name dhammatalks.org
+			itunes:email dhammatalks.feedback@gmail.com
+		itunes:image(href='http://www.dhammatalks.org/images/dto_logo_160.png')
+		itunes:category(text='Religion & Spirituality')
+			itunes:category(text='Buddhism')
+		//- Iterate over all talks and append an item for each
+		each talk in talks
+			item
+				title #{talk.title}
+				link #{talk.enclosureURL}
+				itunes:author Thanissaro Bhikkhu
+				description A talk by Thanissaro Bhikkhu entitled "#{talk.title}"
+				itunes:summary #{talk.title}
+				enclosure(url= talk.enclosureURL, type='audio/mpeg')
+				pubDate #{talk.pubDate}
+				guid #{talk.enclosureURL}
+				itunes:keywords Buddhism,Dhamma,Metta,Forest,Thanissaro,Bhikkhu
+				category Podcasts
+				itunes:explicit no
+		itunes:explicit no
