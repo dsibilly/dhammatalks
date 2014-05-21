@@ -9,11 +9,11 @@ MP3 links into a podcast RSS XML feed.
     'use strict';
     
     var cheerio = require('cheerio'), // server-side jQuery-style DOM implementation 
-        config = require('./common').config(), // Load our config values from env.json
+        config = require('./lib/common').config(), // Load our config values from env.json
         fs = require('fs'),
         jade = require('jade'), // Templating keeps you sane!
         path = require('path'),
-        podcastFormat = require('./date_utils').podcastFormat, // creates podcast date strings
+        podcastFormat = require('./lib/date_utils').podcastFormat, // creates podcast date strings
         request = require('request');
     
     // Grab the Evening Talks Archive from dhammatalks.org...
