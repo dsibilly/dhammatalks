@@ -42,9 +42,9 @@ MP3 links into a podcast RSS XML feed.
                 talkName = $(this).text().trim(),
                 talkPath =  $(this).attr('href').substr(1),
                 talkPaths = talkPath.split('/'), // Split path into elements
-                talkYear = parseInt(talkPaths[1].substr(1)),
-                talkMonth = parseInt(talkPaths[2].substr(2, 2)),
-                talkDay = parseInt(talkPaths[2].substr(4, 2)),
+                talkYear = parseInt(talkPaths[1].substr(1), 10),
+                talkMonth = parseInt(talkPaths[2].substr(2, 2), 10),
+                talkDay = parseInt(talkPaths[2].substr(4, 2), 10),
                 date = isNaN(talkDay) ?
                     new Date(talkYear, talkMonth - 1, 1) :
                     new Date(talkYear, talkMonth - 1, talkDay);
