@@ -8,3 +8,8 @@ node_modules
 
 # ESLint rules
 .eslintrc
+
+# CRC32 checksums
+*.c32
+
+*.txt
