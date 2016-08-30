@@ -18,7 +18,9 @@ Config parameters are in env.json, and available to app.js via the config object
 ## Dependencies
 **dhammatalks** uses the following npm modules:
 
+- [bunyan](https://github.com/trentm/node-bunyan) for JSON logging
 - [cheerio](https://github.com/cheeriojs/cheerio) for jQuery-style DOM implementation
+- [crc32](https://github.com/mikepulaski/node-crc32) for string-safe checksums
 - [jade](https://github.com/visionmedia/jade) for templating
 - [request](https://github.com/mikeal/request) for simple HTTP requests
 
