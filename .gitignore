@@ -17,3 +17,7 @@ env.json
 
 # Text files
 *.txt
+
+# Log files
+*.log
+*.log*.gz
