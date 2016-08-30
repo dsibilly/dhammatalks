@@ -1,4 +1,4 @@
-# dhammatalks 0.0.1
+# dhammatalks 0.2.0
 
 **dhammatalks** is a simple JavaScript website scraper that transforms the Evening Talks Archive at [dhammatalks.org](http://dhammatalks.org/mp3_index.html) into a podcast RSS XML feed.
 

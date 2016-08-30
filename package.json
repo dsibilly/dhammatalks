@@ -1,6 +1,6 @@
 {
   "name": "dhammatalks",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Generates a podcast RSS feed from dhammatalks.org's evening talks",
   "author": "Duane Sibilly <duane@sibilly.com>",
   "license": "MIT",
