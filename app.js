@@ -8,12 +8,15 @@ MP3 links into a podcast RSS XML feed.
 
 'use strict';
 
+/* eslint no-process-env: 0 */
+
 var async = require('async'),
     aws = require('aws-sdk'),
     bunyan = require('bunyan'),
     cheerio = require('cheerio'), // server-side jQuery-style DOM implementation
     config = require('./lib/common').config(), // Load our config values from env.json
     crc32 = require('crc32'),
+    env = process.env.NODE_ENV || 'development',
     fs = require('fs'),
     job,
     log = bunyan.createLogger({
@@ -23,6 +26,7 @@ var async = require('async'),
     podcastFormat = require('./lib/date_utils').podcastFormat, // creates podcast date strings
     pug = require('pug'),  // Templating keeps you sane!
     request = require('request'),
+    schedule = require('node-schedule'),
     start,
     stop,
     url = require('url');
@@ -123,10 +127,9 @@ job = function () {
                 },
                 $ = cheerio.load(options.html); // load the DOM for scraping
 
-            log.info('Generating new podcast feed');
             log.info({
-                url: pugLocals.rssURL
-            }, 'RSS URL');
+                url: pugLocals.rssUrl
+            }, 'Generating new podcast feed');
 
             /*
             As we iterate over the list of MP3 links, the taxonomy of the URLs is
@@ -230,9 +233,10 @@ job = function () {
             log.error(error);
             return;
         }
-
-        log.info('Done.');
     });
 };
 
-job();
+log.info({
+    interval: '6h'
+}, 'Starting dhammatalks updater');
+schedule.scheduleJob('0 0 */6 * * *', job);
