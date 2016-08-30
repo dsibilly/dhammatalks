@@ -3,6 +3,9 @@
 # see https://npmjs.org/doc/faq.html#Should-I-check-my-node_modules-folder-into-git
 node_modules
 
+# Config files don't belong in git...
+env.json
+
 # Output files
 *.xml
 
@@ -12,4 +15,5 @@ node_modules
 # CRC32 checksums
 *.c32
 
+# Text files
 *.txt
