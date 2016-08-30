@@ -16,7 +16,7 @@
     "rss"
   ],
   "dependencies": {
-    "async": "^1.5.2",
+    "async": "^2.0.1",
     "aws-sdk": "^2.5.3",
     "bunyan": "^1.8.1",
     "cheerio": "^0.17.0",
