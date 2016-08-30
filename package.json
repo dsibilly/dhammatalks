@@ -1,28 +1,33 @@
 {
-    "name": "dhammatalks",
-    "version": "0.0.1",
-    "description": "Generates a podcast RSS feed from dhammatalks.org's evening talks",
-    "author": "Duane Sibilly <duane@sibilly.com>",
-    "license": "MIT",
-    "main": "app.js",
-    "scripts": {
-        "start": "NODE_ENV=production node app.js",
-        "stop": "rm *.xml",
-        "test": "node app.js"
-    },
-    "keywords": [
-        "dhammatalks",
-        "podcast",
-        "rss"
-    ],
-    "dependencies": {
-        "cheerio": "0.16.x",
-        "jade": "1.3.x",
-        "request": "2.x"
-    },
-    "engines": {
-        "node": "0.10.x",
-        "npm": "1.3.x"
-    },
-    "private": true
+  "name": "dhammatalks",
+  "version": "0.2.0",
+  "description": "Generates a podcast RSS feed from dhammatalks.org's evening talks",
+  "author": "Duane Sibilly <duane@sibilly.com>",
+  "license": "MIT",
+  "main": "app.js",
+  "scripts": {
+    "start": "NODE_ENV=production node app.js | bunyan -o short",
+    "stop": "rm *.xml *.c32",
+    "test": "node app.js | bunyan -o short"
+  },
+  "keywords": [
+    "dhammatalks",
+    "podcast",
+    "rss"
+  ],
+  "dependencies": {
+    "async": "^2.0.1",
+    "aws-sdk": "^2.5.3",
+    "bunyan": "^1.8.1",
+    "cheerio": "^0.17.0",
+    "crc32": "^0.2.2",
+    "node-schedule": "^1.1.1",
+    "pug": "^2.0.0-beta6",
+    "request": "^2.74.0"
+  },
+  "engines": {
+    "node": "6.x",
+    "npm": "3.x"
+  },
+  "private": true
 }
