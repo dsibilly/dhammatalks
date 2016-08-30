@@ -204,6 +204,13 @@ job = function () {
         },
 
         function uploadToS3 (options, callback) {
+            if (env === 'development') {
+                // Don't upload anything in development!
+                log.warn('Development Mode: skipping S3 upload');
+                callback();
+                return;
+            }
+
             aws.config.update({
                 accessKeyId: config.s3.options.accessKeyId,
                 secretAccessKey: config.s3.options.secretAccessKey
